@@ -4,6 +4,7 @@
     transform: translateY(-50%);
     right: 0;
     height: 100%;
+    overflow: hidden;
 }
 
 .translation__history_title {
