@@ -19,10 +19,14 @@ type PropsType = {
 export const Translation: FC<PropsType> = memo(({ translation, array, setArray, isSaved, title }) => {
     const dispatch = useAppDispatch()
 
+    const languageCondition = (language: string) => language === 'zh-CN' || language === 'zh-TW' ? 'cn' : language
+
     return (
         <div className='translation' key={translation.id}>
             {/* @ts-ignore */}
-            <TranslationLanguages sourceLanguage={translation.sourceLanguage} targetLanguage={translation.targetLanguage} />
+            <TranslationLanguages sourceLanguage={languageCondition(translation.sourceLanguage)}
+                targetLanguage={languageCondition(translation.targetLanguage)} />
+            {/* <TranslationLanguages sourceLanguage={translation.sourceLanguage} targetLanguage={translation.targetLanguage} /> */}
             <TranslationPair text={translation.text} translatedText={translation.translatedText} />
             <FavoriteTranslations id={translation.id} isSaved={isSaved}
                 handleSaveTranslation={() => handleSaveTranslation(array, translation.id, dispatch, isSaved, setArray)} />

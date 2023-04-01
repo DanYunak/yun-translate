@@ -14,5 +14,11 @@ export const flagIconsCondition = (language: string) => {
             return '🇮🇹'
         case 'fr':
             return '🇫🇷'
+        case 'cn':
+            return '🇨🇳'
+        case 'ja':
+            return '🇯🇵'
+        case 'tr':
+            return '🇹🇷'
     }
 }
